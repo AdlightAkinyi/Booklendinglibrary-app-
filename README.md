@@ -51,6 +51,10 @@ PostgreSQL
 
 Bootstrap CSS
 
+HTML
+
+Javascript
+
 Devise for authentication
 
 # Licence
