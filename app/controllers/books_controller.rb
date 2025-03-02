@@ -1,5 +1,6 @@
+
 class BooksController < ApplicationController
-  before_action :authenticate_user!, only: [:borrow, :return]
+  before_action :authenticate_user!, only: [:borrow, :return] 
   before_action :set_book, only: [:show, :borrow, :return]
 
   def index
@@ -7,25 +8,15 @@ class BooksController < ApplicationController
   end
 
   def show
+    # Logic for showing a book
   end
 
   def borrow
-    if @book.available?
-      current_user.borrowings.create(book: @book, due_date: 2.weeks.from_now, returned: false)
-      redirect_to user_path(current_user), notice: "Book borrowed successfully!"
-    else
-      redirect_to @book, alert: "Book is already borrowed."
-    end
+    # Logic for borrowing a book
   end
 
   def return
-    borrowing = current_user.borrowings.find_by(book: @book, returned: false)
-    if borrowing
-      borrowing.update(returned: true)
-      redirect_to user_path(current_user), notice: "Book returned successfully!"
-    else
-      redirect_to @book, alert: "You have not borrowed this book."
-    end
+    # Logic for returning a book
   end
 
   private

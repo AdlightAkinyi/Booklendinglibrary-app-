@@ -1,24 +1,23 @@
-<h1>Available Books</h1>
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Author</th>
-    <th>ISBN</th>
-    <th>Availability</th>
-    <th>Actions</th>
-  </tr>
-  <% @books.each do |book| %>
-    <tr>
-      <td><%= link_to book.title, book_path(book) %></td>
-      <td><%= book.author %></td>
-      <td><%= book.isbn %></td>
-      <td><%= book.available? ? 'Available' : 'Borrowed' %></td>
-      <td>
-        <% if book.available? %>
-          <%= button_to 'Borrow', borrow_book_path(book), method: :post %>
-        <% end %>
-      </td>
-    </tr>
-  <% end %>
-</table>
+<h1 class="text-2xl font-bold text-center mb-4">Available Books</h1>
 
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+  <% @books.each do |book| %>
+    <div class="bg-white p-4 shadow rounded">
+      <h2 class="text-xl font-semibold"><%= book.title %></h2>
+      <p class="text-gray-600">Author: <%= book.author %></p>
+      <p class="text-gray-500">ISBN: <%= book.isbn %></p>
+
+      <%# Alternative button (commented out) %>
+      <%# if book.available? %>
+      <%#   link_to "Borrow", borrow_book_path(book), class: "bg-blue-500 text-white px-4 py-2 rounded mt-2 inline-block" %>
+      <%# else %>
+      
+      <% if book.available? %>
+        <%= button_to "Borrow", borrow_book_path(book), method: :post, class: "btn btn-primary" %>
+      <% else %>
+        <span class="text-red-500">Not Available</span>
+      <% end %>
+
+    </div>
+  <% end %>
+</div>
