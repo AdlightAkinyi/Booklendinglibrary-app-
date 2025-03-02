@@ -14,6 +14,7 @@ Responsive UI with Tailwind CSS
 
 # Installation
 git clone https://github.com/AdlightAkinyi/Booklendinglibrary-app-.git
+
 cd Booklendinglibrary-app-
 
 Install dependencies:
