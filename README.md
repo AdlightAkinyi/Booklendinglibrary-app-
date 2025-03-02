@@ -10,7 +10,7 @@ Borrow and return books
 
 Track book availability
 
-Responsive UI with Tailwind CSS
+Responsive UI with Bootstrap CSS
 
 # Installation
 git clone https://github.com/AdlightAkinyi/Booklendinglibrary-app-.git
